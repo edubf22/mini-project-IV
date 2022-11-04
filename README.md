@@ -16,6 +16,7 @@ Prior to analyzing the data and building the model, it is important to develop h
 * **Candidates who are employed**. This related to the second hypothesis - someone with some sort of income is more likely to pay back the loan. 
 
 ## EDA 
+Different insights could be obtained by performing EDA. Some of these insights are presented below:
 - The property area does not seem to play a significant role. Average income, loan amount and term all seemed to be relatively close regardless of the property location
 - There is significant disparity in the income of male and female applicants, but it does not seem to be the same for 
 
@@ -30,7 +31,7 @@ Prior to analyzing the data and building the model, it is important to develop h
 
 ## Challanges 
 - Giving priority to the right parts of the project. I spent a lot of time imputing missing values with fancier groups, only to realize later that I would not be able to incorporate that in the pipeline.
-- Saving the model using pipeline. Before, I had saved the model with processed data.
+- Saving the model using pipeline. Before, I had saved the model using processed data. Figuring out how to include the feature engineering steps in the pipeline was a big challenge.
 - Understanding how to build an API using Flask. 
 
 ## Future Goals
