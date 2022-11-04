@@ -3,12 +3,29 @@ from flask import Flask, jsonify, request
 # import Resource, Api and reqparser
 from flask_restful import Resource, Api, reqparse
 import pandas as pd
-import numpy
+import numpy as np
 import pickle
 
 # Create an API 
 app = Flask(__name__)
 api = Api(app)
+
+# Function for feature engineering 
+def transform_features(df):
+    # Log of loan amount
+    df['LoanAmount_log'] = np.log(df['LoanAmount'].astype('float64')) 
+
+    # Total income and log of total income
+    df['Total_Income'] = df['ApplicantIncome'] + df['CoapplicantIncome']
+    df['Total_Income_log'] = np.log(df['Total_Income'].astype('float64')) 
+    
+    # drop the original features
+    transformed_feats = ['ApplicantIncome', 'CoapplicantIncome', 'LoanAmount', 'Total_Income']
+    df = df.drop(columns=transformed_feats)
+    
+    # replace the names so the model works with input data
+    df.columns = df.columns.str.replace('_log', '')
+    return df
 
 # Load model 
 model = pickle.load(open("miniproject-model.p", "rb"))
