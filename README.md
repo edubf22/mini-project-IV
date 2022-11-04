@@ -50,7 +50,7 @@ To deploy the model, a very simple API was built using Flask. The API was deploy
 The performance of the model was compared before and after optimization. To analyze the performance, different metrics were used, such as accuracy, f1-score, and correlation matrices. After optimization, the model achieved an **f1-score** of **0.86** for approved requests. However, the f1-score for rejected requests was only **0.59**, so further optimization is needed. Below, the correlation matrix for the optimized model is presented. In this matrix, higher counts are represented in yellow (e.g. true positives), and dark blue corresponds to low counts (e.g. false negatives). 
 ![Correlation matrix for optimized model](images/corr_matrix.png)
 
-## Challanges 
+## Challenges 
 - Giving priority to the right parts of the project. A significant amount of time was spent imputing missing values with more elaborate methods, only to realize later that these could not be incorporated in the pipeline.
 - Saving the model as a script after using pipeline. Initially, the script was created using processed data. Figuring out how to include the feature engineering steps in the pipeline was a big challenge.
 - Understanding how to build an API using Flask. Currently, the API is rather limited, and the response is not ideal (only a probability is shown). 
