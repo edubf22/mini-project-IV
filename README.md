@@ -44,7 +44,7 @@ Having cleaned and engineered the data, it was possible to proceed with building
 
 ### Deploying the Model
 To deploy the model, a very simple API was built using Flask. The API was deployed on AWS and can be successfully accessed using the URL
-(http://ec2-44-202-249-124.compute-1.amazonaws.com:5000/scoring). Currently, only POST requests are accepted. The user must send JSON data with information about the applicant. The response returns both the probability that the loan will be approved (1) and rejected (0). The two are complimentary and should add to 1).
+(http://ec2-44-202-249-124.compute-1.amazonaws.com:5000/scoring). Currently, only POST requests are accepted. The user must send JSON data with information about the applicant. The response returns the probability that the loan will be approved - the closer it is to one, the more likely it is to be approved.
 
 ## Results/Demo
 The performance of the model was compared before and after optimization. To analyze the performance, different metrics were used, such as accuracy, f1-score, and correlation matrices. After optimization, the model achieved an **f1-score** of **0.86** for approved requests. However, the f1-score for rejected requests was only **0.59**, so further optimization is needed. Below, the correlation matrix for the optimized model is presented. In this matrix, higher counts are represented in yellow (e.g. true positives), and dark blue corresponds to low counts (e.g. false negatives). 
@@ -53,7 +53,7 @@ The performance of the model was compared before and after optimization. To anal
 ## Challanges 
 - Giving priority to the right parts of the project. A significant amount of time was spent imputing missing values with more elaborate methods, only to realize later that these could not be incorporated in the pipeline.
 - Saving the model as a script after using pipeline. Initially, the script was created using processed data. Figuring out how to include the feature engineering steps in the pipeline was a big challenge.
-- Understanding how to build an API using Flask. Currently, the API is rather limited, and the response is not ideal. 
+- Understanding how to build an API using Flask. Currently, the API is rather limited, and the response is not ideal (only a probability is shown). 
 
 ## Future Goals
 - Come up with more meaningful ways of treating the data and incorporating that in the pipeline using `FunctionTransformer()`.
